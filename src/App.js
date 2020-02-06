@@ -4,9 +4,12 @@ import reactCSS from 'reactcss'
 import Circle from './components/Circle';
 import ColorPicker from './components/ColorPicker';
 import RangeSlider from './components/RangeSlider';
+import RotationSlider from './components/RotationSlider';
 
 const App = () => {
   const [mainTextSize, setMainTextSize] = useState(50);
+
+  const [mainTextAngle, setMainTextAngle] = useState(0);
 
   const initialBgColor = {
     r: '74',
@@ -18,6 +21,10 @@ const App = () => {
 
   const handleChangeMainTextSize = mainTextSize => {
     setMainTextSize(mainTextSize)
+  }
+
+  const handleChangeMainTextAngle = mainTextAngle => {
+    setMainTextAngle(mainTextAngle)
   }
 
   const handleChangeBgColor = bgColor => {
@@ -38,9 +45,11 @@ const App = () => {
   return (
     <>
       <div style={styles.center}>
-        <Circle bgColor={bgColor} mainTextSize={mainTextSize} />
+        <Circle bgColor={bgColor} mainTextSize={mainTextSize} mainTextAngle={mainTextAngle} />
         <br />
         <ColorPicker onChangeBgColor={handleChangeBgColor} bgColor={bgColor} />
+        <br />
+        <RotationSlider onChangeMainTextAngle={handleChangeMainTextAngle} mainTextAngle={mainTextAngle} />
         <br />
       </div>
       <RangeSlider onChangeMainTextSize={handleChangeMainTextSize} mainTextSize={mainTextSize} />

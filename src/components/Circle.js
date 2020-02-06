@@ -1,7 +1,7 @@
 import React from 'react';
 import reactCSS from 'reactcss'
 
-const Circle = ({ bgColor, mainTextSize }) => {
+const Circle = ({ bgColor, mainTextSize, mainTextAngle }) => {
   const styles = reactCSS({
     'default': {
       circle: {
@@ -15,6 +15,7 @@ const Circle = ({ bgColor, mainTextSize }) => {
       },
       mainText: {
         fontSize: mainTextSize,
+        transform: `rotate(${mainTextAngle}deg)`
       },
     },
   });
