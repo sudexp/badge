@@ -3,6 +3,7 @@ import reactCSS from 'reactcss'
 
 import Circle from './components/Circle';
 import ColorPicker from './components/ColorPicker';
+import FontFamilyPicker from './components/FontFamilyPicker';
 import RangeSlider from './components/RangeSlider';
 import RotationSlider from './components/RotationSlider';
 
@@ -10,6 +11,8 @@ const App = () => {
   const [mainTextSize, setMainTextSize] = useState(50);
 
   const [mainTextAngle, setMainTextAngle] = useState(0);
+
+  const [mainTextFont, setMainTextFont] = useState('Open Sans');
 
   const initialBgColor = {
     r: '74',
@@ -25,6 +28,10 @@ const App = () => {
 
   const handleChangeMainTextAngle = mainTextAngle => {
     setMainTextAngle(mainTextAngle)
+  }
+
+  const handleChangeMainTextFont = mainTextFont => {
+    setMainTextFont(mainTextFont)
   }
 
   const handleChangeBgColor = bgColor => {
@@ -45,9 +52,11 @@ const App = () => {
   return (
     <>
       <div style={styles.center}>
-        <Circle bgColor={bgColor} mainTextSize={mainTextSize} mainTextAngle={mainTextAngle} />
+        <Circle bgColor={bgColor} mainTextSize={mainTextSize} mainTextAngle={mainTextAngle} mainTextFont={mainTextFont} />
         <br />
         <ColorPicker onChangeBgColor={handleChangeBgColor} bgColor={bgColor} />
+        <br />
+        <FontFamilyPicker onChangeMainTextFont={handleChangeMainTextFont} mainTextFont={mainTextFont} />
         <br />
         <RotationSlider onChangeMainTextAngle={handleChangeMainTextAngle} mainTextAngle={mainTextAngle} />
         <br />

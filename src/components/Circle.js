@@ -22,7 +22,7 @@ const Circle = ({ bgColor, mainTextSize, mainTextAngle }) => {
 
   return (
     <div style={styles.circle}>
-      <p style={styles.mainText}>Текст</p>
+      <p style={styles.mainText} className='apply-font'>Текст</p>
     </div>
   );
 }
